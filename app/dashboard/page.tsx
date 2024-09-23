@@ -3,34 +3,22 @@ import bg from '../../public/images/img-bg.png';
 import vector from '../../public/images/Vector.png';
 import send from '../../public/images/send.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-	faEnvelope,
-	faEnvelopeCircleCheck,
-	faPhone,
-} from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faEnvelopeCircleCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons/faEnvelopeSquare';
 
 export default function DashboardHome() {
 	return (
-		<section className="hero flex flex-col-reverse gap-5 lg:flex-row  lg:mt-8 relative z-50">
-			<div className="flex items-center   pt-16 w-full">
-				<div className="flex-1 relative  w-full h-min z-40">
-					<Image
-						className="absolute top-0 -z-10"
-						width={100}
-						src={vector}
-						alt="vector"
-					/>
+		<section className="hero flex flex-col-reverse gap-5 lg:flex-row  lg:mt-8 relative z-40 px-3">
+			<div className="flex items-center justify-center   pt-16 w-full xl:ml-16">
+				<div className="lg:flex-1 relative  w-max lg:w-full h-min z-40">
+					<Image className="absolute top-0 -z-10" width={100} src={vector} alt="vector" />
 					<h1 className="nunito text-5xl lg:text-7xl">
-						<span className="nunito text-3xl lg:text-5xl mb-4 block">
-							{' '}
-							Hi, I'm
-						</span>{' '}
+						<span className="nunito text-3xl lg:text-5xl mb-4 block"> Hi, I'm</span>{' '}
 						<b className="nunito font-extrabold">WISDOM PETERS...</b>
 					</h1>
 					<p className="w-full w-max-[200px] lg:w-max-full text-base lg:text-lg mt-4">
-						A <b className="roboto-condensed-400">fullstack Web developer</b>{' '}
-						based in <b className="roboto-condensed-400">Nigeria</b>
+						A <b className="roboto-condensed-400">fullstack Web developer</b> based in{' '}
+						<b className="roboto-condensed-400">Nigeria</b>
 					</p>
 
 					<div className="contact-link mt-8 mb-8 bg-black text-white w-max p-2 px-5 text-sm">

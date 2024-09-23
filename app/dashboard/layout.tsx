@@ -17,6 +17,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
 	const activeLink = (arg: string) => {
 		setIsActive(arg);
+		setSidebarOpen(false);
 		console.log(arg);
 	};
 	return (
@@ -25,7 +26,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 				{/* Sidebar */}
 				<aside
 					// style={{ width: '250px' }}
-					className={`flex flex-col gap-16 pt-16 h-screen fixed top-0 left-0  w-64 bg-black opacity-90 z-[9999] text-white p-4 max-w-[140px] lg:max-w-[130px]  xl:max-w-[200px] 
+					className={`flex flex-col gap-16 pt-16 h-screen fixed top-0 left-0  w-64 bg-black opacity-90 z-[9999] text-white py-4 max-w-[140px] lg:max-w-[130px]  xl:max-w-[200px] 
 						transform transition-transform duration-300 ease-in-out ${
 							isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
 						} sm:translate-x-0 sm:sticky`}
@@ -35,148 +36,67 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 							<p className="text-3xl text-black">tG</p>
 						</div>
 					</div>
-					<nav className="px-10">
-						<ul className="flex flex-col gap-8 text-xs items-center">
-							<li>
+					<nav className="">
+						<ul className="flex flex-col gap-8 text-xs items-center w-full">
+							<li className="w-full">
 								<Link
 									href="/dashboard"
-									className="relative"
+									className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+										active === 'home' ? 'bg-custom-gradient' : ''
+									}`}
 									onClick={() => activeLink('home')}
 								>
-									<span
-										className={`${
-											active === 'home'
-												? 'absolute left-0 top-[6px] z-10'
-												: 'hidden'
-										}`}
-									>
-										<Image
-											src={line}
-											alt="line"
-											// className="w-[180px]"
-											width={120}
-											height={0}
-										/>
-									</span>
-									<span
-										className={`${
-											active === 'home' ? 'font-bold text-base' : ''
-										}`}
-									>
-										HOME
-									</span>
+									<span className={`${active === 'home' ? 'font-bold text-base ' : ''}`}>HOME</span>
 								</Link>
 							</li>
-							<li>
+							<li className="w-full">
 								<Link
 									href="/dashboard/about"
-									className="relative"
+									className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+										active === 'about' ? 'bg-custom-gradient' : ''
+									}`}
 									onClick={() => activeLink('about')}
 								>
-									<span
-										className={`${
-											active === 'about'
-												? 'absolute left-0 top-[6px] z-10'
-												: 'hidden'
-										}`}
-									>
-										<Image
-											src={line}
-											alt="line"
-											// className="w-[180px]"
-											width={120}
-											height={0}
-										/>
-									</span>{' '}
-									<span
-										className={`${
-											active === 'about' ? 'font-bold text-base' : ''
-										}`}
-									>
+									<span className={`${active === 'about' ? 'font-bold text-base' : ''}`}>
 										ABOUT
 									</span>
 								</Link>
 							</li>
-							<li>
+							<li className="w-full">
 								<Link
 									href="/dashboard/stack"
-									className="relative"
+									className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+										active === 'stack' ? 'bg-custom-gradient' : ''
+									}`}
 									onClick={() => activeLink('stack')}
 								>
-									<span
-										className={`${
-											active === 'stack'
-												? 'absolute left-0 top-[6px] z-10'
-												: 'hidden'
-										}`}
-									>
-										<Image
-											src={line}
-											alt="line"
-											// className="w-[180px]"
-											width={120}
-											height={0}
-										/>
-									</span>{' '}
-									<span
-										className={`${
-											active === 'stack' ? 'font-bold text-base' : ''
-										}`}
-									>
+									<span className={`${active === 'stack' ? 'font-bold text-base' : ''}`}>
 										STACK
 									</span>
 								</Link>
 							</li>
-							<li>
+							<li className="w-full">
 								<Link
 									href="/dashboard/projects"
-									className="relative"
+									className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+										active === 'projects' ? 'bg-custom-gradient' : ''
+									}`}
 									onClick={() => activeLink('projects')}
 								>
-									<span
-										className={`${
-											active === 'projects'
-												? 'absolute left-0 top-[5px] z-10'
-												: 'hidden'
-										}`}
-									>
-										<Image
-											src={line}
-											alt="line"
-											// className="w-[180px]"
-											width={120}
-											height={0}
-										/>
-									</span>{' '}
-									<span
-										className={`${
-											active === 'projects' ? 'font-bold text-base' : ''
-										}`}
-									>
+									<span className={`${active === 'projects' ? 'font-bold text-base' : ''}`}>
 										PROJECTS
 									</span>
 								</Link>
 							</li>
-							<li>
+							<li className="w-full">
 								<Link
 									href="/dashboard/contact"
-									className="relative"
+									className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+										active === 'contact' ? 'bg-custom-gradient' : ''
+									}`}
 									onClick={() => activeLink('contact')}
 								>
-									<span
-										className={`${
-											active === 'contact'
-												? 'absolute left-0 top-[5px] z-10'
-												: 'hidden'
-										}`}
-									>
-										<Image src={line} alt="line" width={120} height={0} />
-									</span>{' '}
-									<span
-										className={`${
-											active === 'contact' ? 'font-bold text-base' : ''
-										}`}
-									>
+									<span className={`${active === 'contact' ? 'font-bold text-base' : ''}`}>
 										CONTACT
 									</span>
 								</Link>
@@ -194,7 +114,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
 				{/* Main Content */}
 				<main
-					className="relative overflow-auto align-middle py-20 lg:py-0 flex-1 lg:p-8 p-5 bg-white"
+					className="relative overflow-auto align-middle py-20 lg:py-0 flex-1 lg:p-8 pt-10 bg-white"
 					style={{
 						backgroundColor: '#fff',
 						color: 'black',
@@ -204,14 +124,14 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 					{/* Hamburger Icon (Visible on Mobile) */}
 					{isSidebarOpen === true ? (
 						<button
-							className="fixed top-4 right-4 sm:hidden"
+							className="fixed top-11 right-4 sm:hidden"
 							onClick={() => toggleSidebar('close')}
 						>
 							✕
 						</button>
 					) : (
 						<button
-							className="fixed top-4 right-4 text-2xl sm:hidden"
+							className="fixed top-11 right-4 text-2xl sm:hidden z-50"
 							onClick={() => toggleSidebar('open')}
 						>
 							☰
@@ -222,7 +142,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 						alt="background"
 						width={500}
 						height={400}
-						className="fixed opacity-30 bottom-[120px] z-10 -right-[100px]"
+						className="fixed opacity-30 bottom-[80px] md:bottom-[120px] z-10 -right-[100px]"
 					/>
 					{children}
 				</main>
