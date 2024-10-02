@@ -1,10 +1,10 @@
+/* eslint-disable react/no-unescaped-entities */
 import Image from 'next/image';
 import bg from '../../public/images/img-bg.png';
 import vector from '../../public/images/Vector.png';
 import send from '../../public/images/send.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faEnvelopeCircleCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelopeSquare } from '@fortawesome/free-solid-svg-icons/faEnvelopeSquare';
+import { faEnvelopeCircleCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 export default function DashboardHome() {
 	return (

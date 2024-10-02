@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Box, Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';

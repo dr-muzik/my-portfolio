@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 export default function About() {
 	return (
 		<section className="px-7 lg:py-20 relative z-40">

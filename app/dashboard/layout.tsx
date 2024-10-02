@@ -1,10 +1,8 @@
 // app/dashboard/layout.tsx
 'use client';
-import Link from 'next/link';
-import React from 'react';
-import { ReactNode, useState } from 'react';
 import Image from 'next/image';
-import line from '../../public/images/Line.png';
+import Link from 'next/link';
+import { ReactNode, useState } from 'react';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
 	const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -12,6 +10,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 
 	const toggleSidebar = (arg: string) => {
 		console.log(arg);
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
 		arg === 'open' ? setSidebarOpen(true) : setSidebarOpen(false);
 	};
 
