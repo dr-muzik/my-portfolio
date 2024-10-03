@@ -161,8 +161,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 				/>
 				<div
 					className={`${
-						isSidebarOpen === true && 'bg-transparent'
-					} bg-white shadow-lg p-3 fixed top--0 left-[5%] z-[100] w-[90%] rounded-xl flex justify-between`}
+						isSidebarOpen === true ? 'bg-transparent' : 'bg-white'
+					}  shadow-lg p-3 fixed top-4 left-[5%] z-[100] w-[90%] rounded-xl flex justify-between`}
 				>
 					<Image
 						src="/images/LOGO.png"
