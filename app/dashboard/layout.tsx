@@ -157,7 +157,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 					alt="background"
 					width={500}
 					height={400}
-					className="fixed opacity-20 bottom-[80px] md:bottom-[120px] z-10 -right-[100px]"
+					className="fixed opacity-10 bottom-[80px] md:bottom-[120px] z-10 -right-[100px]"
 				/>
 				<div
 					className={`${

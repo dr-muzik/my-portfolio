@@ -11,7 +11,7 @@ export default function DashboardHome() {
 	return (
 		<section
 			id="home"
-			className="md:mt-20 pt-20 ps-8 md:ps-0 md:pt-0 hero flex flex-col-reverse gap-5 lg:flex-row  lg:mt-8 relative md:z-40 px-3 mb-20  border-2"
+			className="md:mt-20 pt-24 ps-8 md:ps-0 md:pt-0 hero flex flex-col-reverse gap-5 lg:flex-row  lg:mt-8 relative md:z-40 px-3 mb-20"
 		>
 			<div className="flex items-center justify-center   pt-16 w-full xl:ml-16">
 				<div className="lg:flex-1 relative   w-max lg:w-full h-min z-40">
