@@ -3,6 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode, useState } from 'react';
+import DashboardHome from './page';
+import About from './about/page';
+import Skills from './stack/page';
+import Projects from './projects/page';
+import Contact from './contact/page';
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
 	const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -21,7 +26,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 	};
 	return (
 		<>
-			<div style={{ minHeight: '100vh' }} className="flex">
+			<div style={{ minHeight: '100vh' }} className="hidden md:flex">
 				{/* Sidebar */}
 				<aside
 					// style={{ width: '250px' }}
@@ -141,12 +146,114 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 						alt="background"
 						width={500}
 						height={400}
-						className="fixed opacity-30 bottom-[80px] md:bottom-[120px] z-10 -right-[100px]"
+						className="fixed opacity-20 bottom-[80px] md:bottom-[120px] z-10 -right-[100px]"
 					/>
 					{children}
 				</main>
 			</div>
-			{/* <div className=" sm:hidden text-black bg-white">home</div> */}
+			<div className=" md:hidden text-black bg-white border-2">
+				<Image
+					src="/images/img-bg.png"
+					alt="background"
+					width={500}
+					height={400}
+					className="fixed opacity-20 bottom-[80px] md:bottom-[120px] z-10 -right-[100px]"
+				/>
+				<div
+					className={`${
+						isSidebarOpen === true && 'bg-transparent'
+					} bg-white shadow-lg p-3 fixed top--0 left-[5%] z-[100] w-[90%] rounded-xl flex justify-between`}
+				>
+					<Image
+						src="/images/LOGO.png"
+						alt="background"
+						width={50}
+						height={300}
+						className="rounded-3xl"
+					/>
+					{isSidebarOpen === true ? (
+						<button className="  text-white" onClick={() => toggleSidebar('close')}>
+							X
+						</button>
+					) : (
+						<button className="text-2xl" onClick={() => toggleSidebar('open')}>
+							☰
+						</button>
+					)}
+				</div>
+				<nav
+					className={`transform transition-transform text-white bg-black w-full z-50 fixed top-0 left-0 h-screen opacity-90 duration-700 ease-in-out flex-col gap-10 ${
+						isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+					} `}
+				>
+					<ul className="flex flex-col gap-14 w-full items-center p-20 pt-32">
+						<li className="w-full">
+							<Link
+								href="#"
+								className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+									active === 'home' ? 'bg-custom-gradient' : ''
+								}`}
+								onClick={() => activeLink('home')}
+							>
+								<span className={`${active === 'home' ? 'font-bold text-base ' : ''}`}>HOME</span>
+							</Link>
+						</li>
+						<li className="w-full">
+							<Link
+								href="#about"
+								className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+									active === 'about' ? 'bg-custom-gradient' : ''
+								}`}
+								onClick={() => activeLink('about')}
+							>
+								<span className={`${active === 'about' ? 'font-bold text-base' : ''}`}>ABOUT</span>
+							</Link>
+						</li>
+						<li className="w-full">
+							<Link
+								href="#skills"
+								className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+									active === 'stack' ? 'bg-custom-gradient' : ''
+								}`}
+								onClick={() => activeLink('stack')}
+							>
+								<span className={`${active === 'stack' ? 'font-bold text-base' : ''}`}>STACK</span>
+							</Link>
+						</li>
+						<li className="w-full">
+							<Link
+								href="#projects"
+								className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+									active === 'projects' ? 'bg-custom-gradient' : ''
+								}`}
+								onClick={() => activeLink('projects')}
+							>
+								<span className={`${active === 'projects' ? 'font-bold text-base' : ''}`}>
+									PROJECTS
+								</span>
+							</Link>
+						</li>
+						<li className="w-full">
+							<Link
+								href="#contact"
+								className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+									active === 'contact' ? 'bg-custom-gradient' : ''
+								}`}
+								onClick={() => activeLink('contact')}
+							>
+								<span className={`${active === 'contact' ? 'font-bold text-base' : ''}`}>
+									CONTACT
+								</span>
+							</Link>
+						</li>
+					</ul>
+				</nav>
+				<DashboardHome />
+				<About />
+				<Skills />
+				<Projects />
+				<Contact />
+			</div>
 		</>
 	);
 }

@@ -14,8 +14,10 @@ export default function Projects() {
 	};
 
 	return (
-		<section className="px-7 lg:py-20 relative z-40">
-			<h1 className="text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">PROJECTS</h1>
+		<section id="projects" className="px-7 lg:py-20 relative z-40 mb-20 md:mb-0 pt-[90px] md:pt-0">
+			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">
+				PROJECTS
+			</h1>
 			<p className="text-gray-700">
 				These are the list of projects that I have worked on and with a brief detail about each
 			</p>

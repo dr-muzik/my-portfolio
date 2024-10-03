@@ -5,12 +5,16 @@ import vector from '../../public/images/Vector.png';
 import send from '../../public/images/send.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeCircleCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
 
 export default function DashboardHome() {
 	return (
-		<section className="hero flex flex-col-reverse gap-5 lg:flex-row  lg:mt-8 relative z-40 px-3">
+		<section
+			id="home"
+			className="md:mt-20 pt-20 ps-8 md:ps-0 md:pt-0 hero flex flex-col-reverse gap-5 lg:flex-row  lg:mt-8 relative md:z-40 px-3 mb-20  border-2"
+		>
 			<div className="flex items-center justify-center   pt-16 w-full xl:ml-16">
-				<div className="lg:flex-1 relative  w-max lg:w-full h-min z-40">
+				<div className="lg:flex-1 relative   w-max lg:w-full h-min z-40">
 					<Image className="absolute top-0 -z-10" width={100} src={vector} alt="vector" />
 					<h1 className="nunito text-5xl lg:text-7xl">
 						<span className="nunito text-3xl lg:text-5xl mb-4 block"> Hi, I'm</span>{' '}
@@ -21,12 +25,14 @@ export default function DashboardHome() {
 						<b className="roboto-condensed-400">Nigeria</b>
 					</p>
 
-					<div className="contact-link mt-8 mb-8 bg-black text-white w-max p-2 px-5 text-sm">
-						Let's talk business{' '}
-						<span className="ms-4">
-							<Image className="inline" src={send} alt="send" width={18} />
-						</span>
-					</div>
+					<Link href="#contact" className="block ">
+						<div className="contact-link mt-8 mb-8 bg-black text-white w-max p-2 px-5 text-sm">
+							Let's talk business{' '}
+							<span className="ms-4">
+								<Image className="inline" src={send} alt="send" width={18} />
+							</span>
+						</div>
+					</Link>
 					<div className="contact-details flex flex-col gap-4 lg:flex lg:flex-row lg:gap-8 text-xs">
 						<p className="flex gap-2 align-middle ">
 							<span>
@@ -43,7 +49,7 @@ export default function DashboardHome() {
 					</div>
 				</div>
 			</div>
-			<div className="image flex w-full items-center justify-center">
+			<div className="hidden image md:flex w-full items-center justify-center">
 				<Image className="w-[500px] h-[500px]" src={bg} alt="background" />
 			</div>
 		</section>

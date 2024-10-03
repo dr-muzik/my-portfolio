@@ -59,17 +59,19 @@ const stack: Icons[] = [
 
 export default function Skills() {
 	return (
-		<section className="px-2 lg:py-20 z-30 relative">
-			<h1 className="text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">SKILLS</h1>
+		<section id="skills" className="px-2 lg:py-20 z-30 relative mb-20 md:mb-0 pt-[90px] md:pt-0">
+			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">
+				SKILLS
+			</h1>
 
-			<div className=" flex flex-wrap gap-2 sm:gap-6 justify-center ">
+			<div className=" flex flex-wrap gap-4  sm:gap-6 justify-center ">
 				{stack.map((tech, i) => (
 					<div
 						key={i}
-						className=" bg-white shadow-lg p-4 flex w-[120px] sm:w-[150px] justify-center items-center flex-col gap-3 text-gray-600"
+						className="text-xs bg-white rounded-lg shadow-2xl p-4 flex w-[80px] md:w-[120px] sm:w-[150px] justify-center items-center flex-col gap-3 md:gap-3 text-gray-600"
 					>
 						<Image
-							className="h-[70px] w-[70px]"
+							className="w-[40px] h-[40px] md:h-[70px] md:w-[70px]"
 							src={tech.icons}
 							alt={tech.name}
 							width={50}

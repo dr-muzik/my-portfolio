@@ -8,11 +8,16 @@ import EmailIcon from '@mui/icons-material/Email';
 
 export default function Contact() {
 	return (
-		<section className="px-3 sm:px-7 lg:py-20 bg-white ">
-			<h1 className="text-5xl font-bold mb-11 lg:mb-20 opacity-30 text-[#fe805b]">CONTACT</h1>
-			<div className="lg:flex md:gap-7 relative z-40">
-				<div className="p-1 w-full max-w-[310px] mb-7 z-20 leading-[70px] border-2 border-transparent bg-custom-gradient bg-clip-padding rounded-lg relative h-max">
-					<div className="bg-white z-30 rounded-lg p-7  flex flex-col gap-3 text-gray-900">
+		<section
+			id="contact"
+			className="px-3 sm:px-7 lg:py-20 bg-white mb-36 md:mb-0 pt-[90px] md:pt-0"
+		>
+			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-11 lg:mb-20 opacity-30 text-[#fe805b]">
+				CONTACT
+			</h1>
+			<div className="lg:flex md:gap-7 relative z-40 ">
+				<div className="p-1 w-full max-w-[310px] mb-10  md:mb-7 z-20 leading-[70px] border-2 border-transparent bg-custom-gradient bg-clip-padding rounded-lg relative h-max">
+					<div className="bg-white z-30 rounded-lg p-7  flex flex-col gap-3 text-gray-900 mb-3">
 						<div className="absolute -top-[20px]">
 							<h2 className="text-2xl font-medium z-50  bg-white w-max px-5">Reach Out</h2>
 						</div>
@@ -42,8 +47,8 @@ export default function Contact() {
 					autoComplete="off"
 					className="grid gap-3 w-full lg:max-w-[650px] lg:relative lg:-top-14 text-gray-900"
 				>
-					<h1 className="text-4xl font-semibold text-gray-800 mb-4">Any Project?</h1>
-					<div className="grid gap-7 ">
+					<h1 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4">Any Project?</h1>
+					<div className="grid gap-3 ">
 						<TextField
 							className="md:col-span-1 col-span-2"
 							id="outlined-basic"
