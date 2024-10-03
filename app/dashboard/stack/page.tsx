@@ -1,5 +1,8 @@
 // import { stack } from '@/app/interface';
+'use client';
 import Image from 'next/image';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export interface Icons {
 	icons: string;
@@ -58,8 +61,18 @@ const stack: Icons[] = [
 ];
 
 export default function Skills() {
+	const section1Ref = useRef(null);
+
+	const isInView1 = useInView(section1Ref, { once: true });
 	return (
-		<section id="skills" className="px-2 lg:py-20 z-30 relative mb-20 md:mb-0 pt-[90px] md:pt-0">
+		<motion.section
+			id="skills"
+			className="min-h-screen px-2 lg:py-20 z-30 relative mb-20 md:mb-0 pt-[90px] md:pt-0"
+			ref={section1Ref}
+			initial={{ opacity: 0, y: 100 }}
+			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
+			transition={{ duration: 1, ease: 'easeOut' }}
+		>
 			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">
 				SKILLS
 			</h1>
@@ -81,6 +94,6 @@ export default function Skills() {
 					</div>
 				))}
 			</div>
-		</section>
+		</motion.section>
 	);
 }

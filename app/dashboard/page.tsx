@@ -1,4 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
+'use client';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Image from 'next/image';
 import bg from '../../public/images/img-bg.png';
 import vector from '../../public/images/Vector.png';
@@ -8,10 +11,17 @@ import { faEnvelopeCircleCheck, faPhone } from '@fortawesome/free-solid-svg-icon
 import Link from 'next/link';
 
 export default function DashboardHome() {
+	const section1Ref = useRef(null);
+
+	const isInView1 = useInView(section1Ref, { once: true });
 	return (
-		<section
+		<motion.section
 			id="home"
+			ref={section1Ref}
 			className="md:mt-20 h-screen md:h-auto pb-12 md:pb-0 ps-8 md:ps-0 md:pt-0 hero pt-48  gap-5 lg:flex-row  lg:mt-8 relative md:z-40 px-3 mb-0"
+			initial={{ opacity: 0, y: 100 }}
+			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
+			transition={{ duration: 1, ease: 'easeOut' }}
 		>
 			<div className="flex items-center justify-center pt-10 w-full xl:ml-16">
 				<div className="lg:flex-1 relative   w-max lg:w-full h-min z-40">
@@ -57,6 +67,6 @@ export default function DashboardHome() {
 			<div className="hidden image md:flex w-full items-center justify-center">
 				<Image className="w-[500px] h-[500px]" src={bg} alt="background" />
 			</div>
-		</section>
+		</motion.section>
 	);
 }

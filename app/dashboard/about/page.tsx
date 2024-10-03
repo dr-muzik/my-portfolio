@@ -1,8 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
+'use client';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 
 export default function About() {
+	const section1Ref = useRef(null);
+
+	const isInView1 = useInView(section1Ref, { once: true });
 	return (
-		<section id="about" className="px-7 lg:py-20 relative z-40 mb-10 md:mb-0 pt-[90px] md:pt-0 ">
+		<motion.section
+			id="about"
+			ref={section1Ref}
+			className="px-7 lg:py-20 relative z-40 mb-10 md:mb-0 pt-[90px] md:pt-0 "
+			initial={{ opacity: 0, y: 100 }}
+			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
+			transition={{ duration: 1, ease: 'easeOut' }}
+		>
 			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl mb-8  md:mb-4 font-bold opacity-30 text-[#fe805b] ">
 				ABOUT ME
 			</h1>
@@ -28,6 +41,6 @@ export default function About() {
 				<p>B.Sc. in Computer Science</p>
 				<p>October 2019 - September 2023</p>
 			</div>
-		</section>
+		</motion.section>
 	);
 }

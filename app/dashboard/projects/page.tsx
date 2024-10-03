@@ -1,10 +1,15 @@
 'use client';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import Image from 'next/image';
 import { useState } from 'react';
 // import { Iproject } from '@/app/interface';
 import { projects } from '@/app/interface';
 
 export default function Projects() {
+	const section1Ref = useRef(null);
+
+	const isInView1 = useInView(section1Ref, { once: true });
 	const [project, setProject] = useState('');
 
 	const handleDetails = (pro: string) => {
@@ -14,7 +19,14 @@ export default function Projects() {
 	};
 
 	return (
-		<section id="projects" className="px-7 lg:py-20 relative z-40 mb-20 md:mb-0 pt-[90px] md:pt-0">
+		<motion.section
+			id="projects"
+			className="px-7 lg:py-20 relative z-40 mb-20 md:mb-0 pt-[90px] md:pt-0"
+			ref={section1Ref}
+			initial={{ opacity: 0, y: 100 }}
+			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
+			transition={{ duration: 1, ease: 'easeOut' }}
+		>
 			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">
 				PROJECTS
 			</h1>
@@ -90,6 +102,6 @@ export default function Projects() {
 					/>
 				</div> */}
 			</div>
-		</section>
+		</motion.section>
 	);
 }
