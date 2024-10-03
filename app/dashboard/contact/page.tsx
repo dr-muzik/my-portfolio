@@ -21,22 +21,27 @@ export default function Contact() {
 						<div className="absolute -top-[20px]">
 							<h2 className="text-2xl font-medium z-50  bg-white w-max px-5">Reach Out</h2>
 						</div>
-						<p className="flex gap-3 items-center text-sm ">
+						<p className="flex gap-3 items-center text-base ">
 							<EmailIcon sx={{ fontSize: 25, color: '#c36bd0' }} /> dev_drmuzik@outlook.com
 						</p>
-						<p className="flex gap-3 items-center text-sm">
+						<p className="flex gap-3 items-center text-base">
 							<CallIcon sx={{ fontSize: 25, color: '#c36bd0' }} /> +234 90 653 835 89
 						</p>
 						{/* <p>
 						<CallIcon sx={{ fontSize: 25 }} /> +234 81 243 854 83
 					</p> */}
-						<p className="flex gap-3 items-center text-sm">
-							<XIcon sx={{ fontSize: 25, color: '#c36bd0' }} /> twitter_handle
+						<p className="flex gap-3 items-center text-base">
+							<XIcon sx={{ fontSize: 25, color: '#c36bd0' }} />{' '}
+							<a href="" style={{ color: 'blue' }}>
+								Twitter
+							</a>
 						</p>
-						<p className="flex gap-3 items-center text-sm">
+						<p className="flex gap-3 items-center text-base">
 							{' '}
-							<LinkedInIcon sx={{ fontSize: 25, color: '#c36bd0' }} />
-							linkedIn handle
+							<LinkedInIcon sx={{ fontSize: 35, color: '#c36bd0' }} />
+							<a style={{ color: 'blue' }} href="">
+								LinkedIn
+							</a>
 						</p>
 					</div>
 				</div>

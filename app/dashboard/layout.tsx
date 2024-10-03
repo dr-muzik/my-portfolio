@@ -253,6 +253,10 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 				<Skills />
 				<Projects />
 				<Contact />
+				<footer className="text-base bg-black text-white  mt-8 p-5 py-8 text-center md[w-]:none">
+					Copyright @ 2024 <br />
+					techGenius <br /> All rights reserved
+				</footer>
 			</div>
 		</>
 	);
