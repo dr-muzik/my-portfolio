@@ -8,15 +8,9 @@ import Image from 'next/image';
 import { useTheme } from '../../context/ThemeToggle';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import { IState } from '../interface';
 
-interface IState {
-	isSidebarOpen: boolean;
-	active: string;
-	toggleSidebar: (arg: string) => void;
-	activeLink: (arg: string) => void;
-}
-
-export default function MobileScreen({ isSidebarOpen, active, toggleSidebar, activeLink }: IState) {
+const MobileScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar, activeLink }) => {
 	const { themeMode, toggleTheme } = useTheme();
 
 	return (
@@ -147,6 +141,6 @@ export default function MobileScreen({ isSidebarOpen, active, toggleSidebar, act
 			</footer>
 		</div>
 	);
-}
+};
 
-// export default MobileScreen;
+export default MobileScreen;
