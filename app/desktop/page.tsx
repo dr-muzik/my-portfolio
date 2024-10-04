@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-// import { ReactNode } from 'react';
+// import { } from 'react';
 import About from '../dashboard/about/page';
 import Skills from '../dashboard/stack/page';
 import Projects from '../dashboard/projects/page';
@@ -8,12 +8,7 @@ import DashboardHome from '../dashboard/page';
 import Contact from '../dashboard/contact/page';
 import { IState } from '../interface';
 
-export default function DesktopScreen({
-	isSidebarOpen,
-	active,
-	toggleSidebar,
-	activeLink,
-}: IState) {
+const DesktopScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar, activeLink }) => {
 	return (
 		<div
 			style={{ minHeight: '100vh' }}
@@ -139,6 +134,6 @@ export default function DesktopScreen({
 			</section>
 		</div>
 	);
-}
+};
 
-// export default DesktopScreen;
+export default DesktopScreen;
