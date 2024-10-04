@@ -49,3 +49,11 @@ export const projects: Iproject[] = [
 		projectName: 'Sogizberlin church',
 	},
 ];
+
+export interface IState {
+	isSidebarOpen: boolean;
+	active: string;
+	toggleSidebar: (arg: string) => void;
+	activeLink: (arg: string) => void;
+	// children?: ReactNode;
+}

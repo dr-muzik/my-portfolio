@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 import DashboardLayout from '../app/dashboard/layout';
 
-import { createContext, ReactNode, useContext, useMemo } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 
 interface ThemeContextProps {
@@ -16,7 +16,7 @@ interface ThemeContextProps {
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
+export const ThemeProvider = () => {
 	const [themeMode, setTheme] = useState<'light' | 'dark'>('light');
 
 	// Load theme from local storage or use default light theme
@@ -48,7 +48,8 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 	return (
 		<ThemeContext.Provider value={{ themeMode, toggleTheme }}>
 			<MuiThemeProvider theme={themeMui}>
-				<DashboardLayout>{children}</DashboardLayout>
+				{/* <DashboardLayout>{children}</DashboardLayout> */}
+				<DashboardLayout />
 			</MuiThemeProvider>
 		</ThemeContext.Provider>
 	);

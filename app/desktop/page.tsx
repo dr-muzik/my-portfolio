@@ -1,19 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ReactNode } from 'react';
+// import { ReactNode } from 'react';
 import About from '../dashboard/about/page';
 import Skills from '../dashboard/stack/page';
 import Projects from '../dashboard/projects/page';
 import DashboardHome from '../dashboard/page';
 import Contact from '../dashboard/contact/page';
-
-interface IState {
-	isSidebarOpen: boolean;
-	active: string;
-	toggleSidebar: (arg: string) => void;
-	activeLink: (arg: string) => void;
-	children?: ReactNode;
-}
+import { IState } from '../interface';
 
 export default function DesktopScreen({
 	isSidebarOpen,

@@ -2,7 +2,7 @@
 'use client';
 // import Image from 'next/image';
 // import Link from 'next/link';
-import { ReactNode, useState } from 'react';
+import { useState } from 'react';
 // import DashboardHome from './page';
 // import About from './about/page';
 // import Skills from './stack/page';
@@ -20,7 +20,9 @@ import DesktopScreen from '../desktop/page';
 // 	theme: 'light' | 'dark';
 // }
 
-export default function DashboardLayout({ children }: { children: ReactNode }) {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+// export default function DashboardLayout({ _children }: { children: ReactNode }) {
+export default function DashboardLayout() {
 	// const DashboardLayout = ({ toggle, theme }: IToggle) => {
 	const [isSidebarOpen, setSidebarOpen] = useState(false);
 	const [active, setIsActive] = useState<string>('');
@@ -54,9 +56,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 				active={active}
 				toggleSidebar={toggleSidebar}
 				activeLink={activeLink}
-			>
-				{children}
-			</DesktopScreen>
+			/>
+
 			<MobileScreen
 				isSidebarOpen={isSidebarOpen}
 				active={active}
