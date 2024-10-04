@@ -12,6 +12,8 @@
 // import react from './../public/images/react.png';
 // import nest from './../public/images/nest.png';
 
+import { ReactNode } from 'react';
+
 export interface Icons {
 	icons: string;
 	name: string;
@@ -55,5 +57,5 @@ export interface IState {
 	active: string;
 	toggleSidebar: (arg: string) => void;
 	activeLink: (arg: string) => void;
-	// children?: ReactNode;
+	children?: ReactNode;
 }

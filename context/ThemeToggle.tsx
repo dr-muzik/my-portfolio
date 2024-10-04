@@ -16,7 +16,8 @@ interface ThemeContextProps {
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
-export const ThemeProvider = () => {
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
+	// export const ThemeProvider = () => {
 	const [themeMode, setTheme] = useState<'light' | 'dark'>('light');
 
 	// Load theme from local storage or use default light theme
@@ -48,8 +49,8 @@ export const ThemeProvider = () => {
 	return (
 		<ThemeContext.Provider value={{ themeMode, toggleTheme }}>
 			<MuiThemeProvider theme={themeMui}>
-				{/* <DashboardLayout>{children}</DashboardLayout> */}
-				<DashboardLayout />
+				<DashboardLayout>{children}</DashboardLayout>
+				{/* <DashboardLayout /> */}
 			</MuiThemeProvider>
 		</ThemeContext.Provider>
 	);
