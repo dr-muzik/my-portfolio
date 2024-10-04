@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { useTheme } from '../../context/ThemeToggle';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { IState } from '../interface';
+import { IState } from '../dashboard/interface';
 
 const MobileScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar, activeLink }) => {
 	const { themeMode, toggleTheme } = useTheme();

@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import { useState } from 'react';
 // import { Iproject } from '@/app/interface';
-import { projects } from '@/app/interface';
+import { projects } from '@/app/dashboard/interface';
 
 export default function Projects() {
 	const section1Ref = useRef(null);
