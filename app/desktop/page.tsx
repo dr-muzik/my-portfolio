@@ -15,7 +15,12 @@ interface IState {
 	children?: ReactNode;
 }
 
-const DesktopScreen = ({ isSidebarOpen, active, toggleSidebar, activeLink }: IState) => {
+export default function DesktopScreen({
+	isSidebarOpen,
+	active,
+	toggleSidebar,
+	activeLink,
+}: IState) {
 	return (
 		<div
 			style={{ minHeight: '100vh' }}
@@ -141,6 +146,6 @@ const DesktopScreen = ({ isSidebarOpen, active, toggleSidebar, activeLink }: ISt
 			</section>
 		</div>
 	);
-};
+}
 
-export default DesktopScreen;
+// export default DesktopScreen;

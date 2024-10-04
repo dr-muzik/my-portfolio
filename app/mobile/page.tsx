@@ -16,7 +16,7 @@ interface IState {
 	activeLink: (arg: string) => void;
 }
 
-const MobileScreen = ({ isSidebarOpen, active, toggleSidebar, activeLink }: IState) => {
+export default function MobileScreen({ isSidebarOpen, active, toggleSidebar, activeLink }: IState) {
 	const { themeMode, toggleTheme } = useTheme();
 
 	return (
@@ -147,6 +147,6 @@ const MobileScreen = ({ isSidebarOpen, active, toggleSidebar, activeLink }: ISta
 			</footer>
 		</div>
 	);
-};
+}
 
-export default MobileScreen;
+// export default MobileScreen;
