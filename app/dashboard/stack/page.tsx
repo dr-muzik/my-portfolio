@@ -67,13 +67,13 @@ export default function Skills() {
 	return (
 		<motion.section
 			id="skills"
-			className="min-h-screen px-2 lg:py-20 z-30 relative mb-20 md:mb-0 pt-[90px] md:pt-0"
+			className="min-h-screen md:h-auto  px-2 lg:py-20 z-30 relative mb-0 md:mb-0 pt-[90px] md:pt-0"
 			ref={section1Ref}
 			initial={{ opacity: 0, y: 100 }}
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
 			transition={{ duration: 1, ease: 'easeOut' }}
 		>
-			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">
+			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-9 opacity-30 text-[#fe805b] dark:text-white dark:opacity-30">
 				SKILLS
 			</h1>
 

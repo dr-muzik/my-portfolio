@@ -18,7 +18,7 @@ export default function DashboardHome() {
 		<motion.section
 			id="home"
 			ref={section1Ref}
-			className="md:mt-20 h-screen md:h-auto pb-12 md:pb-0 ps-8 md:ps-0 md:pt-0 hero pt-48  gap-5 lg:flex-row  lg:mt-8 relative md:z-40 px-3 mb-0"
+			className="md:mt-20 h-screen md:h-auto pb-12 md:pb-0 ps-8 md:ps-0 md:pt-0 hero pt-48  gap-5 lg:flex lg:flex-row  lg:mt-8 relative md:z-40 px-3 mb-0"
 			initial={{ opacity: 0, y: 100 }}
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
 			transition={{ duration: 1, ease: 'easeOut' }}

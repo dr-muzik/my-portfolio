@@ -17,19 +17,21 @@ export default function Contact() {
 		<motion.section
 			id="contact"
 			ref={section1Ref}
-			className="px-3 sm:px-7 lg:py-20 bg-white mb-36 md:mb-0 pt-[90px] md:pt-0"
+			className="px-3 sm:px-7 lg:py-20 mb-36 md:mb-0 pt-[90px] md:pt-0"
 			initial={{ opacity: 0, y: 100 }}
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
 			transition={{ duration: 1, ease: 'easeOut' }}
 		>
-			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-11 lg:mb-20 opacity-30 text-[#fe805b]">
+			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-11 lg:mb-20 opacity-30 text-[#fe805b] dark:text-white dark:opacity-30">
 				CONTACT
 			</h1>
 			<div className="lg:flex md:gap-7 relative z-40 ">
-				<div className="p-1 w-full max-w-[310px] mb-10  md:mb-7 z-20 leading-[70px] border-2 border-transparent bg-custom-gradient bg-clip-padding rounded-lg relative h-max">
-					<div className="bg-white z-30 rounded-lg p-7  flex flex-col gap-3 text-gray-900 mb-3">
+				<div className="p-1 w-full max-w-[310px] mb-10  md:mb-7 z-20 leading-[70px] border-2 border-transparent bg-custom-gradient bg-clip-padding dark:bg-none rounded-lg relative h-max">
+					<div className="bg-white dark:bg-transparent z-30 dark:text-white rounded-lg p-7  flex flex-col gap-3 text-gray-900 mb-3">
 						<div className="absolute -top-[20px]">
-							<h2 className="text-2xl font-medium z-50  bg-white w-max px-5">Reach Out</h2>
+							<h2 className="text-2xl font-medium z-50  bg-white dark:bg-transparent w-max px-5">
+								Reach Out
+							</h2>
 						</div>
 						<p className="flex gap-3 items-center text-base ">
 							<EmailIcon sx={{ fontSize: 25, color: '#c36bd0' }} /> dev_drmuzik@outlook.com
@@ -60,12 +62,14 @@ export default function Contact() {
 					// sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
 					noValidate
 					autoComplete="off"
-					className="grid gap-3 w-full lg:max-w-[650px] lg:relative lg:-top-14 text-gray-900"
+					className="grid gap-3 w-full lg:max-w-[650px] lg:relative lg:-top-14 "
 				>
-					<h1 className="text-3xl md:text-4xl font-semibold text-gray-800 mb-4">Any Project?</h1>
-					<div className="grid gap-3 ">
+					<h1 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-white mb-4">
+						Any Project?
+					</h1>
+					<div className="grid gap-3">
 						<TextField
-							className="md:col-span-1 col-span-2"
+							className="md:col-span-1 col-span-2 dark:text-white "
 							id="outlined-basic"
 							label="Name"
 							variant="outlined"

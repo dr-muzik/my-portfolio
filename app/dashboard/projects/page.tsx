@@ -27,10 +27,10 @@ export default function Projects() {
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
 			transition={{ duration: 1, ease: 'easeOut' }}
 		>
-			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">
+			<h1 className="border-l-8 border-red-800  dark:text-white dark:opacity-30 ps-2 text-4xl md:text-5xl font-bold mb-9 opacity-30 text-[#fe805b]">
 				PROJECTS
 			</h1>
-			<p className="text-gray-700">
+			<p className="text-gray-700 dark:text-white">
 				These are the list of projects that I have worked on and with a brief detail about each
 			</p>
 			<div className="flex flex-col items-center lg:flex-row lg:flex-wrap gap-8 mt-14 ">

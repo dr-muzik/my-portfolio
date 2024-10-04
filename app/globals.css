@@ -18,6 +18,7 @@
 }
 
 body {
+	/* transition: background-color 10s, color 10s ease-in-out; */
 	color: var(--foreground);
 	background: var(--background);
 	/* font-family: Arial, Helvetica, sans-serif; */

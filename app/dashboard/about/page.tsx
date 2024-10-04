@@ -11,12 +11,12 @@ export default function About() {
 		<motion.section
 			id="about"
 			ref={section1Ref}
-			className="px-7 lg:py-20 relative z-40 mb-10 md:mb-0 pt-[90px] md:pt-0 "
+			className="px-7 lg:py-20 relative z-40 mb-10 md:mb-0 pt-[90px] md:pt-0"
 			initial={{ opacity: 0, y: 100 }}
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
 			transition={{ duration: 1, ease: 'easeOut' }}
 		>
-			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl mb-8  md:mb-4 font-bold opacity-30 text-[#fe805b] ">
+			<h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl mb-8  md:mb-4 font-bold opacity-30 text-[#fe805b] dark:text-white dark:opacity-30 ">
 				ABOUT ME
 			</h1>
 			<div className="lg:flex lg:gap-[68px] mb-[30px]">
