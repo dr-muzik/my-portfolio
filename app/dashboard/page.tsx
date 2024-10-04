@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+// import { useRef } from 'react';
 import Image from 'next/image';
 import bg from '../../public/images/img-bg.png';
 import vector from '../../public/images/Vector.png';
@@ -9,15 +9,17 @@ import send from '../../public/images/send.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelopeCircleCheck, faPhone } from '@fortawesome/free-solid-svg-icons';
 import Link from 'next/link';
+import { useTheme } from '@/context/ThemeToggle';
 
 export default function DashboardHome() {
-	const section1Ref = useRef(null);
+	const { homeRef } = useTheme();
+	// const section1Ref = useRef(null);
 
-	const isInView1 = useInView(section1Ref, { once: true });
+	const isInView1 = useInView(homeRef, { once: true });
 	return (
 		<motion.section
 			id="home"
-			ref={section1Ref}
+			ref={homeRef}
 			className="md:mt-20 h-screen md:h-auto pb-12 md:pb-0 ps-8 md:ps-0 md:pt-0 hero pt-48  gap-5 lg:flex lg:flex-row  lg:mt-8 relative md:z-40 px-3 mb-0"
 			initial={{ opacity: 0, y: 100 }}
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}

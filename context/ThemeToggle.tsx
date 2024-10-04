@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from 'react';
 // import DashboardLayout from '../dashboardLayout/page';
 // import Dashboard from '../dashboard/dashboardLayout/page';
 
@@ -12,6 +12,15 @@ import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/st
 interface ThemeContextProps {
 	themeMode: 'light' | 'dark';
 	toggleTheme: () => void;
+	scrollToSection: (ref: React.RefObject<HTMLElement>, arg: string) => void;
+	aboutRef: MutableRefObject<HTMLElement | null>;
+	skillsRef: MutableRefObject<HTMLElement | null>;
+	contactRef: MutableRefObject<HTMLElement | null>;
+	projectsRef: MutableRefObject<HTMLElement | null>;
+	homeRef: MutableRefObject<HTMLElement | null>;
+	isSidebarOpen: boolean;
+	active: string;
+	toggleSidebar: (arg: string) => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -36,6 +45,22 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 		document.documentElement.classList.toggle('dark', newTheme === 'dark');
 	};
 
+	const aboutRef = useRef<HTMLElement | null>(null);
+	const skillsRef = useRef<HTMLElement | null>(null);
+	const projectsRef = useRef<HTMLElement | null>(null);
+	const contactRef = useRef<HTMLElement | null>(null);
+	const homeRef = useRef<HTMLElement | null>(null);
+	const [isSidebarOpen, setSidebarOpen] = useState(false);
+	const [active, setIsActive] = useState<string>('');
+
+	const scrollToSection = (ref: React.RefObject<HTMLElement>, arg: string) => {
+		if (ref.current) {
+			ref.current.scrollIntoView({ behavior: 'smooth' });
+			setIsActive(arg);
+			setSidebarOpen(false);
+		}
+	};
+
 	const themeMui = useMemo(
 		() =>
 			createTheme({
@@ -46,8 +71,28 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
 		[themeMode]
 	);
 
+	const toggleSidebar = (arg: string) => {
+		console.log(arg);
+		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
+		arg === 'open' ? setSidebarOpen(true) : setSidebarOpen(false);
+	};
+
 	return (
-		<ThemeContext.Provider value={{ themeMode, toggleTheme }}>
+		<ThemeContext.Provider
+			value={{
+				themeMode,
+				toggleTheme,
+				homeRef,
+				aboutRef,
+				skillsRef,
+				contactRef,
+				projectsRef,
+				scrollToSection,
+				isSidebarOpen,
+				active,
+				toggleSidebar,
+			}}
+		>
 			<MuiThemeProvider theme={themeMui}>
 				<DashboardLayout>{children}</DashboardLayout>
 				{/* <DashboardLayout /> */}

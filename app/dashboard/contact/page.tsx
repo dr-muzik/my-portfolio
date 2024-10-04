@@ -1,22 +1,24 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+// import { useRef } from 'react';
 import { Box, Button, TextField } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import XIcon from '@mui/icons-material/X';
 import CallIcon from '@mui/icons-material/Call';
 import EmailIcon from '@mui/icons-material/Email';
+import { useTheme } from '@/context/ThemeToggle';
 
 export default function Contact() {
-	const section1Ref = useRef(null);
+	const { contactRef } = useTheme();
+	// const section1Ref = useRef(null);
 
-	const isInView1 = useInView(section1Ref, { once: true });
+	const isInView1 = useInView(contactRef, { once: true });
 	return (
 		<motion.section
 			id="contact"
-			ref={section1Ref}
+			ref={contactRef}
 			className="px-3 sm:px-7 lg:py-20 mb-36 md:mb-0 pt-[90px] md:pt-0"
 			initial={{ opacity: 0, y: 100 }}
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}

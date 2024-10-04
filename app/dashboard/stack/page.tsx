@@ -2,7 +2,8 @@
 'use client';
 import Image from 'next/image';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+// import { useRef } from 'react';
+import { useTheme } from '@/context/ThemeToggle';
 
 export interface Icons {
 	icons: string;
@@ -61,14 +62,15 @@ const stack: Icons[] = [
 ];
 
 export default function Skills() {
-	const section1Ref = useRef(null);
+	const { skillsRef } = useTheme();
+	// const section1Ref = useRef(null);
 
-	const isInView1 = useInView(section1Ref, { once: true });
+	const isInView1 = useInView(skillsRef, { once: true });
 	return (
 		<motion.section
 			id="skills"
 			className="min-h-screen md:h-auto  px-2 lg:py-20 z-30 relative mb-0 md:mb-0 pt-[90px] md:pt-0"
-			ref={section1Ref}
+			ref={skillsRef}
 			initial={{ opacity: 0, y: 100 }}
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
 			transition={{ duration: 1, ease: 'easeOut' }}

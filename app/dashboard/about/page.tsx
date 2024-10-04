@@ -1,16 +1,18 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client';
+import { useTheme } from '@/context/ThemeToggle';
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+// import { useRef } from 'react';
 
 export default function About() {
-	const section1Ref = useRef(null);
+	const { aboutRef } = useTheme();
+	// const section1Ref = useRef(null);
 
-	const isInView1 = useInView(section1Ref, { once: true });
+	const isInView1 = useInView(aboutRef, { once: true });
 	return (
 		<motion.section
 			id="about"
-			ref={section1Ref}
+			ref={aboutRef}
 			className="px-7 lg:py-20 relative z-40 mb-10 md:mb-0 pt-[90px] md:pt-0"
 			initial={{ opacity: 0, y: 100 }}
 			animate={{ opacity: isInView1 ? 1 : 0, y: isInView1 ? 0 : 100 }}
@@ -25,7 +27,7 @@ export default function About() {
 					<span className="text-[#fe805b] ps-2">Full Stack Web Application developer</span>. I
 					create engaging and intuitive web experiences
 				</p>
-				<p className="italic roboto-condense-500 leading-6 md:leading-10 mb-2  md:mb-9 lg:w-[340px] bg-white h-max rounded-xl text-gray-700 lg:relative lg:top-[100px] text-sm md:text-left drop-shadow-2xl text-justify p-5">
+				<p className="italic roboto-condense-500 leading-6 md:leading-10 mb-2  md:mb-9 lg:w-[340px] dark:bg-gray-950 dark:text-white bg-white h-max rounded-xl text-gray-700 lg:relative lg:top-[100px] text-sm md:text-left drop-shadow-2xl dark:shadow-slate-100 text-justify p-5">
 					...with my basic foundation in full-stack development, I can handle both the client-side
 					and server-side tasks, ensuring seamless integration and optimized performance. Whether
 					you're looking to create modern web apps or in need of backend services, I'm here to help

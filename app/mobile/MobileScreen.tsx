@@ -1,4 +1,4 @@
-import Link from 'next/link';
+// import Link from 'next/link';
 import About from '../dashboard/about/page';
 import Contact from '../dashboard/contact/page';
 import DashboardHome from '../dashboard/page';
@@ -8,13 +8,26 @@ import Image from 'next/image';
 import { useTheme } from '../../context/ThemeToggle';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
-import { IState } from '../Interface/interface';
+// import { IState } from '../Interface/interface';
+// import { useRef } from 'react';
 
-const MobileScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar, activeLink }) => {
-	const { themeMode, toggleTheme } = useTheme();
+const MobileScreen: React.FC = () => {
+	const {
+		themeMode,
+		toggleTheme,
+		scrollToSection,
+		homeRef,
+		aboutRef,
+		contactRef,
+		projectsRef,
+		skillsRef,
+		active,
+		isSidebarOpen,
+		toggleSidebar,
+	} = useTheme();
 
 	return (
-		<div className=" md:hidden bg-white dark:bg-gray-950 text-black dark:text-white transition-colors duration-60000 ease-in-out">
+		<div className=" md:hidden bg-white dark:bg-gray-950 text-black dark:text-white transition-colors duration-700 ease-in-out">
 			<Image
 				src="/images/img-bg.png"
 				alt="background"
@@ -69,64 +82,52 @@ const MobileScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar, 
 				} `}
 			>
 				<ul className="flex flex-col gap-14 w-full items-center p-20 pt-32">
-					<li className="w-full">
-						<Link
-							href="#"
-							className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-								active === 'home' ? 'bg-custom-gradient' : ''
-							}`}
-							onClick={() => activeLink('home')}
-						>
-							<span className={`${active === 'home' ? 'font-bold text-base ' : ''}`}>HOME</span>
-						</Link>
+					<li
+						className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+							active === 'home' ? 'bg-custom-gradient' : ''
+						}`}
+						onClick={() => scrollToSection(homeRef, 'home')}
+						style={{ cursor: 'pointer' }}
+					>
+						<span className={`${active === 'home' ? 'font-bold text-base' : ''}`}>HOME</span>
 					</li>
-					<li className="w-full">
-						<Link
-							href="#about"
-							className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-								active === 'about' ? 'bg-custom-gradient' : ''
-							}`}
-							onClick={() => activeLink('about')}
-						>
-							<span className={`${active === 'about' ? 'font-bold text-base' : ''}`}>ABOUT</span>
-						</Link>
+					<li
+						className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+							active === 'about' ? 'bg-custom-gradient' : ''
+						}`}
+						onClick={() => scrollToSection(aboutRef, 'about')}
+						style={{ cursor: 'pointer' }}
+					>
+						<span className={`${active === 'about' ? 'font-bold text-base' : ''}`}>ABOUT</span>
 					</li>
-					<li className="w-full">
-						<Link
-							href="#skills"
-							className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-								active === 'stack' ? 'bg-custom-gradient' : ''
-							}`}
-							onClick={() => activeLink('stack')}
-						>
-							<span className={`${active === 'stack' ? 'font-bold text-base' : ''}`}>STACK</span>
-						</Link>
+					<li
+						className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+							active === 'skills' ? 'bg-custom-gradient' : ''
+						}`}
+						onClick={() => scrollToSection(skillsRef, 'skills')}
+						style={{ cursor: 'pointer' }}
+					>
+						<span className={`${active === 'skills' ? 'font-bold text-base' : ''}`}>SKILLS</span>
 					</li>
-					<li className="w-full">
-						<Link
-							href="#projects"
-							className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-								active === 'projects' ? 'bg-custom-gradient' : ''
-							}`}
-							onClick={() => activeLink('projects')}
-						>
-							<span className={`${active === 'projects' ? 'font-bold text-base' : ''}`}>
-								PROJECTS
-							</span>
-						</Link>
+					<li
+						className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+							active === 'projects' ? 'bg-custom-gradient' : ''
+						}`}
+						onClick={() => scrollToSection(projectsRef, 'projects')}
+						style={{ cursor: 'pointer' }}
+					>
+						<span className={`${active === 'projects' ? 'font-bold text-base' : ''}`}>
+							PROJECTS
+						</span>
 					</li>
-					<li className="w-full">
-						<Link
-							href="#contact"
-							className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-								active === 'contact' ? 'bg-custom-gradient' : ''
-							}`}
-							onClick={() => activeLink('contact')}
-						>
-							<span className={`${active === 'contact' ? 'font-bold text-base' : ''}`}>
-								CONTACT
-							</span>
-						</Link>
+					<li
+						className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
+							active === 'contact' ? 'bg-custom-gradient' : ''
+						}`}
+						onClick={() => scrollToSection(contactRef, 'contact')}
+						style={{ cursor: 'pointer' }}
+					>
+						<span className={`${active === 'contact' ? 'font-bold text-base' : ''}`}>CONTACT</span>
 					</li>
 				</ul>
 			</nav>

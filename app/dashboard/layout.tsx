@@ -11,6 +11,7 @@ import { ReactNode, useState } from 'react';
 // import ThemeToggle from '../component/ThemeToggle';
 import MobileScreen from '../mobile/MobileScreen';
 import DesktopScreen from '../desktop/DesktopScreen';
+// import { useTheme } from '@/context/ThemeToggle';
 // import { ThemeProvider } from '@/context/ThemeToggle';
 // import { ThemeProvider } from '@emotion/react';
 
@@ -25,8 +26,10 @@ import DesktopScreen from '../desktop/DesktopScreen';
 export default function DashboardLayout({ children }: { children: ReactNode }) {
 	// export default function DashboardLayout() {
 	// const DashboardLayout = ({ toggle, theme }: IToggle) => {
+	// const {setSidebarOpen} = useTheme();
 	const [isSidebarOpen, setSidebarOpen] = useState(false);
 	const [active, setIsActive] = useState<string>('');
+
 	// const { themeMode, } = useTheme();
 
 	// useEffect(() => {
@@ -50,7 +53,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 		console.log(arg);
 	};
 	return (
-		<div className="transition-colors duration-5000 ease-in-out">
+		<>
 			{/* <button onClick={toggleTheme}>click</button> */}
 			<DesktopScreen
 				isSidebarOpen={isSidebarOpen}
@@ -61,12 +64,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
 				{children}
 			</DesktopScreen>
 
-			<MobileScreen
-				isSidebarOpen={isSidebarOpen}
-				active={active}
-				toggleSidebar={toggleSidebar}
-				activeLink={activeLink}
-			/>
-		</div>
+			<MobileScreen />
+		</>
 	);
 }
