@@ -6,7 +6,7 @@ import Skills from '../dashboard/stack/page';
 import Projects from '../dashboard/projects/page';
 import DashboardHome from '../dashboard/page';
 import Contact from '../dashboard/contact/page';
-import { IState } from '../dashboard/interface';
+import { IState } from '../Interface/interface';
 
 const DesktopScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar, activeLink }) => {
 	return (

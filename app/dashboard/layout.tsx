@@ -9,8 +9,8 @@ import { useState } from 'react';
 // import Projects from './projects/page';
 // import Contact from './contact/page';
 // import ThemeToggle from '../component/ThemeToggle';
-import MobileScreen from '../mobile/page';
-import DesktopScreen from '../desktop/page';
+import MobileScreen from '../mobile/MobileScreen';
+import DesktopScreen from '../desktop/DesktopScreen';
 // import { ThemeProvider } from '@emotion/react';
 
 // import { useTheme } from '../../context/ThemeToggle';
