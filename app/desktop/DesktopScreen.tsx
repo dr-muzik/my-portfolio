@@ -22,10 +22,17 @@ const DesktopScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar,
 							isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
 						} sm:translate-x-0 sm:sticky`}
 			>
-				<div className="px-10">
-					<div className="merriweather-black rounded-full mb-4 bg-white w-max p-2 flex h-max">
+				<div className="flex justify-center">
+					{/* <div className="merriweather-black rounded-full mb-4 bg-white w-max p-2 flex h-max">
 						<p className="text-3xl text-black">tG</p>
-					</div>
+					</div> */}
+					<Image
+						src="/images/LOGO.png"
+						alt="background"
+						width={70}
+						height={300}
+						className="rounded-[35px]"
+					/>
 				</div>
 				<nav className="">
 					<ul className="flex flex-col gap-8 text-xs items-center w-full">
@@ -99,7 +106,9 @@ const DesktopScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar,
 
 			{/* Main Content */}
 			<section
-				className="relative overflow-auto align-middle py-20 lg:py-0 flex-1 lg:p-8 pt-10 bg-white"
+				className={`relative overflow-auto align-middle py-20 lg:py-0 flex-1 lg:p-8 pt-10 bg-white ${
+					active === '' && 'flex justify-center items-center'
+				}`}
 				style={{
 					backgroundColor: '#fff',
 					color: 'black',
@@ -131,6 +140,11 @@ const DesktopScreen: React.FC<IState> = ({ isSidebarOpen, active, toggleSidebar,
 				{active === 'stack' && <Skills />}
 				{active === 'projects' && <Projects />}
 				{active === 'contact' && <Contact />}
+				{active === '' && (
+					<div className="border-2 bg-custom-gradient opacity-90 drop-shadow-2xl text-center p-8 rounded-2xl text-5xl">
+						Welcome to my <br /> <span className="font-bold text-8xl">PORTFOLIO</span>
+					</div>
+				)}
 			</section>
 		</div>
 	);
