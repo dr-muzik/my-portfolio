@@ -1,110 +1,135 @@
-'use client';
+"use client";
 
-import { MutableRefObject, useEffect, useRef, useState } from 'react';
+import { MutableRefObject, useEffect, useRef, useState } from "react";
 // import DashboardLayout from '../dashboardLayout/page';
 // import Dashboard from '../dashboard/dashboardLayout/page';
 
-import DashboardLayout from '../app/dashboard/layout';
+import DashboardLayout from "../app/dashboard/layout";
 
-import { createContext, useContext, useMemo } from 'react';
-import { createTheme, ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
+import { createContext, useContext, useMemo } from "react";
+import {
+  createTheme,
+  ThemeProvider as MuiThemeProvider,
+} from "@mui/material/styles";
+import React from "react";
+import { IConnect } from "@/app/Interface/interface";
 
 interface ThemeContextProps {
-	themeMode: 'light' | 'dark';
-	toggleTheme: () => void;
-	scrollToSection: (ref: React.RefObject<HTMLElement>, arg: string) => void;
-	aboutRef: MutableRefObject<HTMLElement | null>;
-	skillsRef: MutableRefObject<HTMLElement | null>;
-	contactRef: MutableRefObject<HTMLElement | null>;
-	projectsRef: MutableRefObject<HTMLElement | null>;
-	homeRef: MutableRefObject<HTMLElement | null>;
-	isSidebarOpen: boolean;
-	active: string;
-	toggleSidebar: (arg: string) => void;
+  themeMode: "light" | "dark";
+  toggleTheme: () => void;
+  scrollToSection: (ref: React.RefObject<HTMLElement>, arg: string) => void;
+  aboutRef: MutableRefObject<HTMLElement | null>;
+  skillsRef: MutableRefObject<HTMLElement | null>;
+  contactRef: MutableRefObject<HTMLElement | null>;
+  projectsRef: MutableRefObject<HTMLElement | null>;
+  homeRef: MutableRefObject<HTMLElement | null>;
+  isSidebarOpen: boolean;
+  active: string;
+  toggleSidebar: (arg: string) => void;
+  handleChange: (event: React.SyntheticEvent, newValue: number) => void;
+  value: number;
+  input: IConnect;
+  setInput: React.Dispatch<React.SetStateAction<IConnect>>;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
-	// export const ThemeProvider = () => {
-	const [themeMode, setTheme] = useState<'light' | 'dark'>('light');
+  // export const ThemeProvider = () => {
+  const [themeMode, setTheme] = useState<"light" | "dark">("light");
 
-	// Load theme from local storage or use default light theme
-	useEffect(() => {
-		const savedTheme = localStorage.getItem('theme') || 'light';
-		setTheme(savedTheme as 'light' | 'dark');
-		document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-	}, []);
+  // Load theme from local storage or use default light theme
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme as "light" | "dark");
+    document.documentElement.classList.toggle("dark", savedTheme === "dark");
+  }, []);
 
-	// Handle theme toggle
-	const toggleTheme = () => {
-		console.log('first');
-		const newTheme = themeMode === 'light' ? 'dark' : 'light';
-		setTheme(newTheme);
-		localStorage.setItem('theme', newTheme);
-		document.documentElement.classList.toggle('dark', newTheme === 'dark');
-	};
+  // Handle theme toggle
+  const toggleTheme = () => {
+    console.log("first");
+    const newTheme = themeMode === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+  };
 
-	const aboutRef = useRef<HTMLElement | null>(null);
-	const skillsRef = useRef<HTMLElement | null>(null);
-	const projectsRef = useRef<HTMLElement | null>(null);
-	const contactRef = useRef<HTMLElement | null>(null);
-	const homeRef = useRef<HTMLElement | null>(null);
-	const [isSidebarOpen, setSidebarOpen] = useState(false);
-	const [active, setIsActive] = useState<string>('');
+  const aboutRef = useRef<HTMLElement | null>(null);
+  const skillsRef = useRef<HTMLElement | null>(null);
+  const projectsRef = useRef<HTMLElement | null>(null);
+  const contactRef = useRef<HTMLElement | null>(null);
+  const homeRef = useRef<HTMLElement | null>(null);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [active, setIsActive] = useState<string>("");
+  const [value, setValue] = React.useState(0);
 
-	const scrollToSection = (ref: React.RefObject<HTMLElement>, arg: string) => {
-		if (ref.current) {
-			ref.current.scrollIntoView({ behavior: 'smooth' });
-			setIsActive(arg);
-			setSidebarOpen(false);
-		}
-	};
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    console.log("newValue: ", newValue);
+    setValue(newValue);
+  };
 
-	const themeMui = useMemo(
-		() =>
-			createTheme({
-				palette: {
-					mode: themeMode,
-				},
-			}),
-		[themeMode]
-	);
+  const scrollToSection = (ref: React.RefObject<HTMLElement>, arg: string) => {
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+      setIsActive(arg);
+      setSidebarOpen(false);
+    }
+  };
 
-	const toggleSidebar = (arg: string) => {
-		console.log(arg);
-		// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-		arg === 'open' ? setSidebarOpen(true) : setSidebarOpen(false);
-	};
+  const themeMui = useMemo(
+    () =>
+      createTheme({
+        palette: {
+          mode: themeMode,
+        },
+      }),
+    [themeMode]
+  );
 
-	return (
-		<ThemeContext.Provider
-			value={{
-				themeMode,
-				toggleTheme,
-				homeRef,
-				aboutRef,
-				skillsRef,
-				contactRef,
-				projectsRef,
-				scrollToSection,
-				isSidebarOpen,
-				active,
-				toggleSidebar,
-			}}
-		>
-			<MuiThemeProvider theme={themeMui}>
-				<DashboardLayout>{children}</DashboardLayout>
-				{/* <DashboardLayout /> */}
-			</MuiThemeProvider>
-		</ThemeContext.Provider>
-	);
+  const toggleSidebar = (arg: string) => {
+    console.log(arg);
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    arg === "open" ? setSidebarOpen(true) : setSidebarOpen(false);
+  };
+
+  const [input, setInput] = useState<IConnect>({
+    fullName: "",
+    email: "",
+    message: "",
+  });
+
+  return (
+    <ThemeContext.Provider
+      value={{
+        themeMode,
+        toggleTheme,
+        homeRef,
+        aboutRef,
+        skillsRef,
+        contactRef,
+        projectsRef,
+        scrollToSection,
+        isSidebarOpen,
+        active,
+        toggleSidebar,
+        handleChange,
+        value,
+        input,
+        setInput,
+      }}
+    >
+      <MuiThemeProvider theme={themeMui}>
+        <DashboardLayout>{children}</DashboardLayout>
+        {/* <DashboardLayout /> */}
+      </MuiThemeProvider>
+    </ThemeContext.Provider>
+  );
 };
 
 export const useTheme = () => {
-	const context = useContext(ThemeContext);
-	if (!context) {
-		throw new Error('useTheme must be used within a ThemeProvider');
-	}
-	return context;
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme must be used within a ThemeProvider");
+  }
+  return context;
 };

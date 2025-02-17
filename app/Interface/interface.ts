@@ -12,50 +12,55 @@
 // import react from './../public/images/react.png';
 // import nest from './../public/images/nest.png';
 
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
+export interface IConnect {
+  fullName: string;
+  email: string;
+  message: string;
+}
 export interface Icons {
-	icons: string;
-	name: string;
+  icons: string;
+  name: string;
 }
 
 export interface Iproject {
-	src: string;
-	siteName: string;
-	about: string;
-	server: string;
-	client: string;
-	site: string;
-	projectName: string;
+  src: string;
+  siteName: string;
+  about: string;
+  server: string;
+  client: string;
+  site: string;
+  projectName: string;
 }
 
 export const projects: Iproject[] = [
-	{
-		src: '/images/sef.png',
-		siteName: 'Sefmar',
-		about:
-			'is an online Market that gives business owners the opportunity to create and have an online shop for their businesses, which can be accessible by anyone within and outside their region.',
-		server: 'Nodejs, Expressjs and MYSQL, Nodemailer (for email services)',
-		client: 'React Vitejs, typescript, scss, bootstrap',
-		site: 'https://www.sefmar.com',
-		projectName: 'Sefmar Limted',
-	},
-	{
-		src: '/images/sogizHero.png',
-		siteName: 'Sogizberlin',
-		about:
-			'is an online Market that gives business owners the opportunity to create and have an online shop for their businesses, which can be accessible by anyone within and outside their region.',
-		server: 'Nodemailer (for email services)',
-		client: 'React Vitejs, typescript, scss',
-		site: 'https://www.sefmar.com',
-		projectName: 'Sogizberlin church',
-	},
+  {
+    src: "/images/sef.png",
+    siteName: "Sefmar",
+    about:
+      "is an online Market that gives business owners the opportunity to create and have an online shop for their businesses, which can be accessible by anyone within and outside their region.",
+    server: "Nodejs, Expressjs and MYSQL, Nodemailer (for email services)",
+    client: "React Vitejs, typescript, scss, bootstrap",
+    site: "https://www.sefmar.com",
+    projectName: "Sefmar Limted",
+  },
+  {
+    src: "/images/sogizHero.png",
+    siteName: "Sogizberlin",
+    about:
+      "is an online Market that gives business owners the opportunity to create and have an online shop for their businesses, which can be accessible by anyone within and outside their region.",
+    server: "Nodemailer (for email services)",
+    client: "React Vitejs, typescript, scss",
+    site: "https://www.sefmar.com",
+    projectName: "Sogizberlin church",
+  },
 ];
 
 export interface IState {
-	isSidebarOpen: boolean;
-	active: string;
-	toggleSidebar: (arg: string) => void;
-	activeLink: (arg: string) => void;
-	children?: ReactNode;
+  isSidebarOpen: boolean;
+  active: string;
+  toggleSidebar: (arg: string) => void;
+  activeLink: (arg: string) => void;
+  children?: ReactNode;
 }
