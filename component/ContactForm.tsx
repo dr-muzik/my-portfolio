@@ -23,7 +23,10 @@ export default function ContactForm() {
     e.preventDefault();
     // toast.error("An error occurred. Please try again.");
     console.log("ref: ", loading);
-    setLoading(true);
+    if (!input.fullName || !input.email || !input.message) {
+      setLoading(false);
+      return toast.error("Please fill in all fields.");
+    }
 
     // simulate API call delay
     // setTimeout(() => {
