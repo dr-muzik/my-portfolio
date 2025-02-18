@@ -3,10 +3,12 @@ import { Box, Button, TextField } from "@mui/material";
 import SendIcon from "@mui/icons-material/Send";
 import { useTheme } from "@/context/ThemeToggle";
 import { ToastContainer, toast } from "react-toastify";
-import React from "react";
+import React, { useRef } from "react";
+import { ClipLoader } from "react-spinners";
 
 export default function ContactForm() {
   const { setInput, input } = useTheme();
+  const [loading, setLoading] = React.useState(false);
 
   const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -19,8 +21,17 @@ export default function ContactForm() {
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
+    // toast.error("An error occurred. Please try again.");
+    console.log("ref: ", loading);
+    setLoading(true);
 
+    // simulate API call delay
+    // setTimeout(() => {
+    //   setLoading(false);
+    //   // handle response...
+    // }, 2000);
     try {
+      setLoading(true);
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -32,18 +43,21 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (data.success) {
-        toast("Your message has been sent successfully!");
+        setLoading(false);
+        toast.success("Your message has been sent successfully!");
         setInput({
           fullName: "",
           email: "",
           message: "",
         });
       } else {
-        toast("Something went wrong. Please try again.");
+        setLoading(false);
+        toast.error("Something went wrong. Please try again.");
       }
     } catch (error) {
+      setLoading(false);
       console.error("Error:", error);
-      toast("An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.");
     }
   };
 
@@ -93,11 +107,15 @@ export default function ContactForm() {
           <div className="col-span-2">
             <Button
               variant="contained"
-              className="bg-custom-gradient"
+              className="bg-custom-gradient w-[151px]"
               endIcon={<SendIcon />}
               onClick={submit}
             >
-              Let's Connect
+              {loading ? (
+                <ClipLoader color="#fff" size={25} />
+              ) : (
+                "Let's Connect"
+              )}
             </Button>
           </div>
           <ToastContainer />
