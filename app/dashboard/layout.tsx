@@ -3,18 +3,19 @@
 
 import { ReactNode, useEffect, useState } from "react";
 
-import { usePathname } from "next/navigation";
+import { useTheme } from "@/context/ThemeToggle";
 import DesktopScreen from "../desktop/DesktopScreen";
 import MobileScreen from "../mobile/MobileScreen";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function DashboardLayout({ children }: { children: ReactNode }) {
-  const path = usePathname();
-  const pathName = path.split("/")[2];
+  const { active, setIsActive, pathName } = useTheme();
+  // const path = usePathname();
+  // const pathName = path.split("/")[2];
 
-  const [active, setIsActive] = useState<string>(
-    pathName === undefined ? "" : pathName
-  );
+  // const [active, setIsActive] = useState<string>(
+  //   pathName === undefined ? "" : pathName
+  // );
 
   useEffect(() => {
     setIsActive(pathName);

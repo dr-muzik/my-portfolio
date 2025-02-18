@@ -14,8 +14,9 @@ import bg from "../../../public/images/img-bg.png";
 import send from "../../../public/images/send.png";
 import vector from "../../../public/images/Vector.png";
 
-export default function DashboardHome({ active }: { active?: string }) {
-  const { homeRef, scrollToSection, mobileActive, contactRef } = useTheme();
+export default function DashboardHome() {
+  const { homeRef, scrollToSection, mobileActive, contactRef, active } =
+    useTheme();
   console.log({ active });
   // const section1Ref = useRef(null);
 

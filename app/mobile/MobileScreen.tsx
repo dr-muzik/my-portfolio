@@ -5,7 +5,8 @@ import Image from "next/image";
 import { useTheme } from "../../context/ThemeToggle";
 import About from "../dashboard/about/page";
 import Contact from "../dashboard/contact/page";
-import DashboardHome from "../dashboard/home/page";
+import Home from "../dashboard/home/page";
+// import dashboardHome from "@/component/Home";
 import Projects from "../dashboard/projects/page";
 import Skills from "../dashboard/stack/page";
 // import { IState } from '../Interface/interface';
@@ -161,7 +162,7 @@ const MobileScreen: React.FC = () => {
           </li>
         </ul>
       </nav>
-      <DashboardHome />
+      <Home />
       <About />
       <Skills />
       <Projects />

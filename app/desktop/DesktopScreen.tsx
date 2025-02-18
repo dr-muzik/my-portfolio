@@ -168,7 +168,7 @@ const DesktopScreen: React.FC<IState> = ({
           height={400}
           className="fixed opacity-20 bottom-[80px] md:bottom-[120px] z-10 -right-[100px]"
         />
-        {active === "home" && <DashboardHome active={active} />}
+        {active === "home" && <DashboardHome />}
         {active === "about" && <About />}
         {active === "stack" && <Skills />}
         {active === "projects" && <Projects />}

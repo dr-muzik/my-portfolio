@@ -11,6 +11,7 @@ import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
 } from "@mui/material/styles";
+import { usePathname } from "next/navigation";
 import React, { createContext, useContext, useMemo } from "react";
 
 interface ThemeContextProps {
@@ -25,6 +26,8 @@ interface ThemeContextProps {
   welcomeRef: MutableRefObject<HTMLElement | null>;
   isSidebarOpen: boolean;
   active: string;
+  setIsActive: React.Dispatch<React.SetStateAction<string>>;
+  pathName: string;
   mobileActive: string;
   toggleSidebar: (arg: string) => void;
   handleChange: (event: React.SyntheticEvent, newValue: number) => void;
@@ -55,6 +58,9 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
+  const path = usePathname();
+  const pathName = path.split("/")[2];
+
   const aboutRef = useRef<HTMLElement | null>(null);
   const skillsRef = useRef<HTMLElement | null>(null);
   const projectsRef = useRef<HTMLElement | null>(null);
@@ -62,9 +68,12 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const homeRef = useRef<HTMLElement | null>(null);
   const welcomeRef = useRef<HTMLElement | null>(null);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [active, setIsActive] = useState<string>("");
+  // const [active, setIsActive] = useState<string>("");
   const [mobileActive, setMobileActive] = useState<string>("home");
   const [value, setValue] = React.useState(0);
+  const [active, setIsActive] = useState<string>(
+    pathName === undefined ? "" : pathName
+  );
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     console.log("newValue: ", newValue);
@@ -115,6 +124,8 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         scrollToSection,
         isSidebarOpen,
         active,
+        setIsActive,
+        pathName,
         toggleSidebar,
         handleChange,
         value,
