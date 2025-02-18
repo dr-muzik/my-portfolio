@@ -3,9 +3,9 @@
 
 import { ReactNode, useEffect, useState } from "react";
 
-import MobileScreen from "../mobile/MobileScreen";
+import { usePathname } from "next/navigation";
 import DesktopScreen from "../desktop/DesktopScreen";
-import { useRouter, usePathname } from "next/navigation";
+import MobileScreen from "../mobile/MobileScreen";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function DashboardLayout({ children }: { children: ReactNode }) {
@@ -19,7 +19,6 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
   useEffect(() => {
     setIsActive(pathName);
   }, [pathName]);
-  // const route = useRouter().
   const [isSidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = (arg: string) => {

@@ -1,7 +1,6 @@
 // app/components/ContactMotionSection.tsx
 "use client";
 
-import { useTheme } from "@/context/ThemeToggle";
 import { motion, useInView } from "framer-motion";
 
 interface ContactMotionSectionProps {

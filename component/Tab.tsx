@@ -1,8 +1,7 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
 import { useTheme } from "@/context/ThemeToggle";
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import Tabs from "@mui/material/Tabs";
 
 export default function CenteredTabs() {
   // const [value, setValue] = React.useState(0);

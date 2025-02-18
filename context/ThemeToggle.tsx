@@ -6,13 +6,12 @@ import { MutableRefObject, useEffect, useRef, useState } from "react";
 
 import DashboardLayout from "../app/dashboard/layout";
 
-import { createContext, useContext, useMemo } from "react";
+import { IConnect } from "@/app/Interface/interface";
 import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
 } from "@mui/material/styles";
-import React from "react";
-import { IConnect } from "@/app/Interface/interface";
+import React, { createContext, useContext, useMemo } from "react";
 
 interface ThemeContextProps {
   themeMode: "light" | "dark";

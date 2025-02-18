@@ -2,17 +2,17 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 // import { useRef } from 'react';
-import Image from "next/image";
-import bg from "../../../public/images/img-bg.png";
-import vector from "../../../public/images/Vector.png";
-import send from "../../../public/images/send.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTheme } from "@/context/ThemeToggle";
 import {
   faEnvelopeCircleCheck,
   faPhone,
 } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "@/context/ThemeToggle";
+import bg from "../../../public/images/img-bg.png";
+import send from "../../../public/images/send.png";
+import vector from "../../../public/images/Vector.png";
 
 export default function DashboardHome({ active }: { active?: string }) {
   const { homeRef, scrollToSection, mobileActive, contactRef } = useTheme();

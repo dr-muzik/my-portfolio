@@ -1,11 +1,8 @@
-// import { stack } from '@/app/interface';
 "use client";
-import Image from "next/image";
-import { motion, useInView } from "framer-motion";
-// import { useRef } from 'react';
-import { useTheme } from "@/context/ThemeToggle";
-import { Tabs } from "@mui/material";
 import Tab from "@/component/Tab";
+import { useTheme } from "@/context/ThemeToggle";
+import { motion, useInView } from "framer-motion";
+import Image from "next/image";
 
 export interface Icons {
   icons: string;
@@ -14,8 +11,6 @@ export interface Icons {
 
 export default function Skills() {
   const { skillsRef, value } = useTheme();
-  // const section1Ref = useRef(null);
-  // console.log({ value });
 
   const isInView1 = useInView(skillsRef, { once: true });
   return (

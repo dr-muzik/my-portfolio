@@ -1,14 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-// import { } from 'react';
 import About from "../dashboard/about/page";
-import Skills from "../dashboard/stack/page";
-import Projects from "../dashboard/projects/page";
-import Welcome from "../dashboard/page";
 import Contact from "../dashboard/contact/page";
 import DashboardHome from "../dashboard/home/page";
+import Welcome from "../dashboard/page";
+import Projects from "../dashboard/projects/page";
+import Skills from "../dashboard/stack/page";
 import { IState } from "../Interface/interface";
-import { act } from "react";
 
 const DesktopScreen: React.FC<IState> = ({
   isSidebarOpen,
@@ -24,7 +22,6 @@ const DesktopScreen: React.FC<IState> = ({
     >
       {/* Sidebar */}
       <aside
-        // style={{ width: '250px' }}
         className={`flex flex-col py-20 justify-between gap-16 h-screen fixed top-0 left-0  w-64 bg-black opacity-90 z-[9999] text-white max-w-[140px] lg:max-w-[130px]  xl:max-w-[200px] 
 						transform transition-transform duration-300 ease-in-out ${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"

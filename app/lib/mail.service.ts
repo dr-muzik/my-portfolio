@@ -5,9 +5,9 @@ export const mailSender = async (
   title: string,
   body: string
 ) => {
-  console.log("env: ", process.env.MAIL_PASS);
+  // console.log("env: ", process.env.MAIL_PASS);
   try {
-    let transporter = createTransport({
+    const transporter = createTransport({
       host: process.env.MAIL_HOST,
       port: 465,
       auth: {
@@ -17,9 +17,9 @@ export const mailSender = async (
       secure: true,
       connectionTimeout: 10000,
     });
-    console.log(`host: ${process.env.MAIL_HOST}`);
+    // console.log(`host: ${process.env.MAIL_HOST}`);
 
-    let info = await transporter.sendMail({
+    const info = await transporter.sendMail({
       from: `"TechGeniusApplications Team" <${process.env.MAIL_USER}>`, // sender address
       to: `${email}`, // list of receivers
       subject: `${title}`, // Subject line
@@ -27,8 +27,8 @@ export const mailSender = async (
     });
     console.log(info.response);
     return info;
-  } catch (error: any) {
+  } catch (error) {
     console.log(`mailError:`, error);
-    return error.message;
+    return error;
   }
 };

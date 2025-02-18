@@ -1,17 +1,3 @@
-// import { StaticImageData } from 'next/image';
-// import javascript from './../public/images/js.png';
-// import ts from './../public/images/ts.png';
-// // import next from './../public/images/nextjs.png';
-// import node from './../public/images/nodejs.png';
-// import scss from './../public/images/sass.png';
-// import git from './../public/images/icon-git.png';
-// import socket from './../public/images/socket.png';
-// import express from './../public/images/express.png';
-// import mongo from './../public/images/mongodb.png';
-// import tailwind from './../public/images/tailwind.png';
-// import react from './../public/images/react.png';
-// import nest from './../public/images/nest.png';
-
 import { ReactNode } from "react";
 
 export interface IConnect {

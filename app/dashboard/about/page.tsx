@@ -3,11 +3,9 @@
 import { useTheme } from "@/context/ThemeToggle";
 import { motion, useInView } from "framer-motion";
 import Image from "next/image";
-// import { useRef } from 'react';
 
 export default function About() {
   const { aboutRef } = useTheme();
-  // const section1Ref = useRef(null);
 
   const isInView1 = useInView(aboutRef, { once: true });
 

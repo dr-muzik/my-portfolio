@@ -1,13 +1,13 @@
 // import Link from 'next/link';
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
+import Image from "next/image";
+import { useTheme } from "../../context/ThemeToggle";
 import About from "../dashboard/about/page";
 import Contact from "../dashboard/contact/page";
 import DashboardHome from "../dashboard/home/page";
 import Projects from "../dashboard/projects/page";
 import Skills from "../dashboard/stack/page";
-import Image from "next/image";
-import { useTheme } from "../../context/ThemeToggle";
-import LightModeIcon from "@mui/icons-material/LightMode";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
 // import { IState } from '../Interface/interface';
 // import { useRef } from 'react';
 

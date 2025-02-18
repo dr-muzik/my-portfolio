@@ -1,10 +1,10 @@
 "use client";
-import { Box, Button, TextField } from "@mui/material";
-import SendIcon from "@mui/icons-material/Send";
 import { useTheme } from "@/context/ThemeToggle";
-import { ToastContainer, toast } from "react-toastify";
-import React, { useRef } from "react";
+import SendIcon from "@mui/icons-material/Send";
+import { Box, Button, TextField } from "@mui/material";
+import React from "react";
 import { ClipLoader } from "react-spinners";
+import { ToastContainer, toast } from "react-toastify";
 
 export default function ContactForm() {
   const { setInput, input } = useTheme();
