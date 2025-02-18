@@ -36,7 +36,7 @@ export default function About() {
               width={30}
               height={30}
             />
-            <button type="button" className="text-black">
+            <button type="button" className="text-black text-xs">
               Download My Resume
             </button>
           </a>

@@ -25,22 +25,21 @@ const DesktopScreen: React.FC<IState> = ({
       {/* Sidebar */}
       <aside
         // style={{ width: '250px' }}
-        className={`flex flex-col gap-16 pt-16 h-screen fixed top-0 left-0  w-64 bg-black opacity-90 z-[9999] text-white py-4 max-w-[140px] lg:max-w-[130px]  xl:max-w-[200px] 
+        className={`flex flex-col py-20 justify-between gap-16 h-screen fixed top-0 left-0  w-64 bg-black opacity-90 z-[9999] text-white max-w-[140px] lg:max-w-[130px]  xl:max-w-[200px] 
 						transform transition-transform duration-300 ease-in-out ${
               isSidebarOpen ? "translate-x-0" : "-translate-x-full"
             } sm:translate-x-0 sm:sticky`}
       >
         <div className="flex justify-center">
-          {/* <div className="merriweather-black rounded-full mb-4 bg-white w-max p-2 flex h-max">
-						<p className="text-3xl text-black">tG</p>
-					</div> */}
-          <Image
-            src="/images/LOGO.png"
-            alt="background"
-            width={70}
-            height={300}
-            className="rounded-[35px]"
-          />
+          <Link href="/dashboard">
+            <Image
+              src="/images/LOGO.png"
+              alt="background"
+              width={70}
+              height={300}
+              className="rounded-[35px]"
+            />
+          </Link>
         </div>
         <nav className="">
           <ul className="flex flex-col gap-8 text-xs items-center w-full">
@@ -132,7 +131,7 @@ const DesktopScreen: React.FC<IState> = ({
           </ul>
         </nav>
 
-        <footer className="text-[10px]  mt-8 px-2 text-center md[w-]:none">
+        <footer className="text-[10px] px-2 text-center md[w-]:none">
           Copyright @ 2024 <br />
           techGenius <br /> All right reserved
         </footer>
@@ -172,7 +171,7 @@ const DesktopScreen: React.FC<IState> = ({
           height={400}
           className="fixed opacity-20 bottom-[80px] md:bottom-[120px] z-10 -right-[100px]"
         />
-        {active === "home" && <DashboardHome />}
+        {active === "home" && <DashboardHome active={active} />}
         {active === "about" && <About />}
         {active === "stack" && <Skills />}
         {active === "projects" && <Projects />}

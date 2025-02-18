@@ -48,36 +48,38 @@ export default function ContactForm() {
   };
 
   return (
-    <React.Fragment>
+    <>
       <Box
         component="form"
         // sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
         noValidate
         autoComplete="off"
-        className="grid gap-3 w-full lg:max-w-[650px] lg:relative lg:-top-14 "
+        className="block w-full lg:max-w-[650px] lg:relative lg:-top-14 "
       >
         <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-white mb-4">
           Got any Project or Gig?
         </h1>
-        <div className="grid gap-3">
-          <TextField
-            className="md:col-span-1 col-span-2 dark:text-white "
-            id="outlined-basic"
-            name="fullName"
-            label="Name"
-            variant="outlined"
-            value={input.fullName || ""}
-            onChange={handleInput}
-          />
-          <TextField
-            className="md:col-span-1 col-span-2"
-            id="outlined-basic"
-            name="email"
-            label="Email"
-            variant="outlined"
-            value={input.email || ""}
-            onChange={handleInput}
-          />
+        <div className=" flex flex-col gap-3">
+          <div className="block md:flex md:flex-row gap-3">
+            <TextField
+              className=" dark:text-white w-full mb-3 md:mb-0 "
+              id="outlined-basic"
+              name="fullName"
+              label="Name"
+              variant="outlined"
+              value={input.fullName || ""}
+              onChange={handleInput}
+            />
+            <TextField
+              className=" w-full mb-3 md:mb-0"
+              id="outlined-basic"
+              name="email"
+              label="Email"
+              variant="outlined"
+              value={input.email || ""}
+              onChange={handleInput}
+            />
+          </div>
           <TextField
             id="outlined-multiline-static"
             label="Message"
@@ -85,7 +87,7 @@ export default function ContactForm() {
             value={input.message || ""}
             multiline
             rows={4}
-            className="col-span-2"
+            className="col-span-2 w-full"
             onChange={handleInput}
           />
           <div className="col-span-2">
@@ -101,6 +103,6 @@ export default function ContactForm() {
           <ToastContainer />
         </div>
       </Box>
-    </React.Fragment>
+    </>
   );
 }

@@ -23,8 +23,10 @@ interface ThemeContextProps {
   contactRef: MutableRefObject<HTMLElement | null>;
   projectsRef: MutableRefObject<HTMLElement | null>;
   homeRef: MutableRefObject<HTMLElement | null>;
+  welcomeRef: MutableRefObject<HTMLElement | null>;
   isSidebarOpen: boolean;
   active: string;
+  mobileActive: string;
   toggleSidebar: (arg: string) => void;
   handleChange: (event: React.SyntheticEvent, newValue: number) => void;
   value: number;
@@ -59,8 +61,10 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const projectsRef = useRef<HTMLElement | null>(null);
   const contactRef = useRef<HTMLElement | null>(null);
   const homeRef = useRef<HTMLElement | null>(null);
+  const welcomeRef = useRef<HTMLElement | null>(null);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [active, setIsActive] = useState<string>("");
+  const [mobileActive, setMobileActive] = useState<string>("home");
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
@@ -71,7 +75,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   const scrollToSection = (ref: React.RefObject<HTMLElement>, arg: string) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth" });
-      setIsActive(arg);
+      setMobileActive(arg);
       setSidebarOpen(false);
     }
   };
@@ -108,6 +112,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         skillsRef,
         contactRef,
         projectsRef,
+        welcomeRef,
         scrollToSection,
         isSidebarOpen,
         active,
@@ -116,6 +121,7 @@ export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
         value,
         input,
         setInput,
+        mobileActive,
       }}
     >
       <MuiThemeProvider theme={themeMui}>

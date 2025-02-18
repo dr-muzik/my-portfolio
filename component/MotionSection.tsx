@@ -1,19 +1,20 @@
 // app/components/ContactMotionSection.tsx
 "use client";
 
+import { useTheme } from "@/context/ThemeToggle";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
 
 interface ContactMotionSectionProps {
   children: React.ReactNode;
   id?: string;
+  ref: React.RefObject<HTMLElement>;
 }
 
 export default function MotionSection({
   children,
   id,
+  ref,
 }: ContactMotionSectionProps) {
-  const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true });
 
   return (

@@ -3,14 +3,16 @@
 
 import ContactForm from "@/component/ContactForm";
 import MotionSection from "@/component/MotionSection";
+import { useTheme } from "@/context/ThemeToggle";
 import CallIcon from "@mui/icons-material/Call";
 import EmailIcon from "@mui/icons-material/Email";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import XIcon from "@mui/icons-material/X";
 
 export default function Contact() {
+  const { contactRef } = useTheme();
   return (
-    <MotionSection id="contact">
+    <MotionSection id="contact" ref={contactRef}>
       <h1 className="border-l-8 border-red-800 ps-2 text-4xl md:text-5xl font-bold mb-11 lg:mb-20 opacity-30 text-[#fe805b] dark:text-white dark:opacity-30">
         CONTACT
       </h1>

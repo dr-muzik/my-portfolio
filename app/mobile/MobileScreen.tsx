@@ -21,7 +21,7 @@ const MobileScreen: React.FC = () => {
     contactRef,
     projectsRef,
     skillsRef,
-    active,
+    mobileActive,
     isSidebarOpen,
     toggleSidebar,
   } = useTheme();
@@ -86,53 +86,59 @@ const MobileScreen: React.FC = () => {
         <ul className="flex flex-col gap-14 w-full items-center p-20 pt-32">
           <li
             className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-              active === "home" ? "bg-custom-gradient" : ""
+              mobileActive === "home" ? "bg-custom-gradient" : ""
             }`}
             onClick={() => scrollToSection(homeRef, "home")}
             style={{ cursor: "pointer" }}
           >
             <span
-              className={`${active === "home" ? "font-bold text-base" : ""}`}
+              className={`${
+                mobileActive === "home" ? "font-bold text-base" : ""
+              }`}
             >
               HOME
             </span>
           </li>
           <li
             className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-              active === "about" ? "bg-custom-gradient" : ""
+              mobileActive === "about" ? "bg-custom-gradient" : ""
             }`}
             onClick={() => scrollToSection(aboutRef, "about")}
             style={{ cursor: "pointer" }}
           >
             <span
-              className={`${active === "about" ? "font-bold text-base" : ""}`}
+              className={`${
+                mobileActive === "about" ? "font-bold text-base" : ""
+              }`}
             >
               ABOUT
             </span>
           </li>
           <li
             className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-              active === "skills" ? "bg-custom-gradient" : ""
+              mobileActive === "skills" ? "bg-custom-gradient" : ""
             }`}
             onClick={() => scrollToSection(skillsRef, "skills")}
             style={{ cursor: "pointer" }}
           >
             <span
-              className={`${active === "skills" ? "font-bold text-base" : ""}`}
+              className={`${
+                mobileActive === "skills" ? "font-bold text-base" : ""
+              }`}
             >
               SKILLS
             </span>
           </li>
           <li
             className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-              active === "projects" ? "bg-custom-gradient" : ""
+              mobileActive === "projects" ? "bg-custom-gradient" : ""
             }`}
             onClick={() => scrollToSection(projectsRef, "projects")}
             style={{ cursor: "pointer" }}
           >
             <span
               className={`${
-                active === "projects" ? "font-bold text-base" : ""
+                mobileActive === "projects" ? "font-bold text-base" : ""
               }`}
             >
               PROJECTS
@@ -140,13 +146,15 @@ const MobileScreen: React.FC = () => {
           </li>
           <li
             className={`relative w-full block text-center p-1 hover:bg-gray-800 hover:bg-opacity-50 ${
-              active === "contact" ? "bg-custom-gradient" : ""
+              mobileActive === "contact" ? "bg-custom-gradient" : ""
             }`}
             onClick={() => scrollToSection(contactRef, "contact")}
             style={{ cursor: "pointer" }}
           >
             <span
-              className={`${active === "contact" ? "font-bold text-base" : ""}`}
+              className={`${
+                mobileActive === "contact" ? "font-bold text-base" : ""
+              }`}
             >
               CONTACT
             </span>

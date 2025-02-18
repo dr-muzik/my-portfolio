@@ -14,8 +14,9 @@ import {
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeToggle";
 
-export default function DashboardHome() {
-  const { homeRef } = useTheme();
+export default function DashboardHome({ active }: { active?: string }) {
+  const { homeRef, scrollToSection, mobileActive, contactRef } = useTheme();
+  console.log({ active });
   // const section1Ref = useRef(null);
 
   const isInView1 = useInView(homeRef, { once: true });
@@ -48,14 +49,31 @@ export default function DashboardHome() {
             based in <b className="roboto-condensed-400">Nigeria</b>
           </p>
 
-          <Link href="/dashboard/contact" className="">
-            <div className="contact-link rounded-md dark:bg-white mt-10 mb-10 md:mt-8 md:mb-8 bg-black w-max text-white p-2 px-5 text-sm">
-              <p className="dark:text-black inline"> Let's talk business </p>
-              <span className="ms-4">
-                <Image className="inline" src={send} alt="send" width={18} />
-              </span>
+          {active ? (
+            <Link href="/dashboard/contact" className="">
+              <div className="contact-link rounded-md dark:bg-white hover:scale-110 hover:bg-slate-700 hover:ease-in-out mt-10 mb-10 md:mt-8 md:mb-8 bg-black w-max text-white p-2 px-5 text-sm">
+                <p className="dark:text-black inline"> Let's talk business </p>
+                <span className="ms-4">
+                  <Image className="inline" src={send} alt="send" width={18} />
+                </span>
+              </div>
+            </Link>
+          ) : mobileActive.length > 0 && !active ? (
+            <div
+              className=""
+              onClick={() => scrollToSection(contactRef, "contact")}
+              style={{ cursor: "pointer" }}
+            >
+              <div className="contact-link rounded-md hover:scale-110 hover:bg-slate-700 hover:ease-in-out dark:bg-white mt-10 mb-10 md:mt-8 md:mb-8 bg-black w-max text-white p-2 px-5 text-sm">
+                <p className="dark:text-black inline"> Let's talk business </p>
+                <span className="ms-4">
+                  <Image className="inline" src={send} alt="send" width={18} />
+                </span>
+              </div>
             </div>
-          </Link>
+          ) : (
+            <p>hide</p>
+          )}
           <div className="contact-details flex flex-col gap-4 lg:flex lg:flex-row lg:gap-8 text-base">
             <p className="flex gap-2 align-middle ">
               <span>
